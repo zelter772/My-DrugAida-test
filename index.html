@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in || Sign up from</title>
+     <!-- font awesome icons -->
+     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="../img/Section.png" as="image">
+
+    <!-- <style>
+        body {
+            opacity: 0;
+            animation: scaleUp 1s ease-in-out forwards;
+        }
+        @keyframes scaleUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style> -->
+
+</head>
+<body id="body">
+
+    <section id="navbar">
+        <div class="logo">
+            <img src="../img/logo.svgg.png" alt="MyDrugaida">
+            <img class="img-text" src="../img/MYDRUGAIDA.png" alt="MyDrugaida">
+        </div>
+
+        <div class="nav-links">
+            <a href="#">Overview</a>
+            <a href="#">Blog</a>
+            <a href="#">About Us</a>
+        </div>
+
+        <div class="nav-btn">          
+            <button id="signInButton" class="sign-btn"><img src="../img/circle.png" alt="MyDrugaida"> <span>Sign In</span></button>
+        </div>
+
+    </section>
+
+    <div class="loading-screen">
+        <h1>Loading...</h1>
+    </div>
+
+    <section id="main">
+    <div class="container" id="container">
+        <div class="form-container register-container">
+            <form id="register" action="#">
+
+                <!-- Step 1 -->
+                <div class="form-step active1" id="page1">
+                    <div class="prev-btn">
+                        <button> <img src="../img/Text + Button.png" alt="prev"> </button>
+                    </div>
+
+                    <div class="greeting-info">
+                        <h1>Let's get started!</h1>
+                        <p>Fill in your details to create your mydrugaida account.</p>
+                    </div>
+
+                    <div class="loader">
+                        <img src="../img/Loader.png" alt="progress">
+                    </div>
+
+                    <div class="input-fields">
+                        <div class="short-fields">
+                            <div class="group">
+                                <label for="name">Full name</label>
+                                <input type="text" name="name" id="name" placeholder="John Doe" required>
+
+                                <label for="number">Phone number</label>
+                                <input type="tel" name="number" id="number" placeholder="09064736437" required>
+
+                                <label for="dob">Date Of Birth</label>
+                                <input type="date" name="dob" id="dob" placeholder="09064736437" required>
+                            </div>
+
+                            <div class="group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" placeholder="Mide@email.com" required>
+
+                                <label for="occupation">Occupation</label>
+                                <select name="occupation" id="occupation" required>
+                                    <!-- dynamic -->
+                                     <option value="">Select an Occupation</option>
+                                     <option value="medical doctor ">Medical doctor</option>
+                                </select>
+
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender" required>
+                                    <!-- dynamic -->
+                                     <option value="">Gender</option>
+                                     <option value="males">male</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="long-fields">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="**********">
+                            <p>*Password must be at least 8 characters long, contain at least one uppercase letter (A-Z), one lowercase letter (a-z), one number (0-9), and one special character (e.g ., @, !, $, %).</p>
+                        </div>
+                        
+                        <div class="nextstep-btn">
+                            <button onclick="navigatePage(2)" type="button" id="nextbtn-1" disabled>Next</button>
+                            <p>Already have an account? <span> Sign in </span></p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Step 2 - for doctors -->
+                <div class="form-step" id="page2">
+                    <div class="prev-btn">
+                        <button onclick="navigatePage(1)"> <img src="../img/Text + Button.png" alt="prev"> </button>
+                    </div>
+
+                    <div class="greeting-info">
+                        <h1>Let's get started!</h1>
+                        <p>Fill in your details to create your mydrugaida account.</p>
+                    </div>
+
+                    <div class="loader">
+                        <img src="../img/Loader2.png" alt="progress">
+                    </div>
+
+                    <div class="input-fields">
+                        <div class="short-fields">
+                            <div class="group">
+                                <label for="license">Medical License Number</label>
+                                <input type="number" name="license" id="license" placeholder="John Doe" required>
+
+                                <label for="healthcare">Healthcare</label>
+                                <select name="healthcare" id="healthcare" required>
+                                    <!-- dynamic -->
+                                     <option value="">select healthcare</option>
+                                     <option value="tolu">Tolu's healthcare</option>
+                                </select>
+                            </div>
+
+                            <div class="group">
+                                <label for="speciality">Speciality</label>
+                                <select name="speciality" id="speciality" required>
+                                    <!-- dynamic -->
+                                     <option value="">select speciality</option>
+                                     <option value="dunno">concondritaliality</option>
+                                </select>
+
+                                <label for="nin">Nin</label>
+                                <input type="number" name="nin" id="nin" required>
+                            </div>
+                        </div>
+
+                        <!-- image upload box -->
+                        <div class="form-group">
+                            <label for="fileUpload" class="drop-container" id="dropcontainer">
+                            <span class="drop-title">Upload Credentials</span>
+                            or
+                            <input type="file" id="fileUpload" name="fileUpload" placeholder="choose" required>
+                            </label>
+                        </div>
+                        <div class="form-group1" id="condition">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the terms and conditions</label>
+                        </div>
+                        
+                        <div class="nextstep-btn nextstep-btn2">
+                            <button onclick="navigatePage(3)" type="button" id="nextbtn-2" disabled>Next</button>
+                            <p>Already have an account? <span> Sign in </span></p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Step 2 - for pharmacists -->
+                <!-- <div class="form-step" id="page2">
+                    <div class="prev-btn">
+                        <button onclick="navigatePage(1)"> <img src="../img/Text + Button.png" alt="prev"> </button>
+                    </div>
+
+                    <div class="greeting-info">
+                        <h1>Let's get started!</h1>
+                        <p>Fill in your details to create your mydrugaida account.</p>
+                    </div>
+
+                    <div class="loader">
+                        <img src="../img/Loader2.png" alt="progress">
+                    </div>
+
+                    <div class="input-fields">
+                        <div class="short-fields">
+                            <div class="group">
+                                <label for="license">Pharmacists License Number</label>
+                                <input type="number" name="license" id="license" placeholder="John Doe" required>
+
+                                <label for="Pharmacy-name/chain">Pharmacy Name/Chain</label>
+                                <select name="Pharmacy-name/chain" id="Pharmacy-name/chain" required>
+
+                                     <option value="">Select Pharmacy Name/Chain</option>
+                                     <option value="Boluke">Boluke pharmacy</option>
+                                </select>
+                            </div>
+
+                            <div class="group">
+                                <label for="region-of-license">State/Region Of License</label>
+                                <select name="region-of-license" id="region-of-license" required>
+
+                                     <option value="">select State/Region Of License</option>
+                                     <option value="lagos">Lagos state</option>
+                                </select>
+
+                                <label for="nin">Nin</label>
+                                <input type="number" name="nin" id="nin" required>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="fileUpload" class="drop-container" id="dropcontainer">
+                            <span class="drop-title">Upload Credentials</span>
+                            or
+                            <input type="file" id="fileUpload" name="fileUpload" placeholder="choose" required>
+                            </label>
+                        </div>
+                        <div class="form-group1" id="condition">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to the terms and conditions</label>
+                        </div>
+                        
+                        <div class="nextstep-btn nextstep-btn2">
+                            <button onclick="navigatePage(3)" type="button" id="nextbtn-2" disabled>Next</button>
+                            <p>Already have an account? <span> Sign in </span></p>
+                        </div>
+
+                    </div>
+                </div> -->
+
+
+                <!-- step 3 -->
+                <div class="form-step" id="page3">
+                    <div class="prev-btn">
+                        <button onclick="navigatePage(2)"> <img src="../img/Text + Button.png" alt="prev"> </button>
+                    </div>
+
+                    <div class="greeting-info">
+                        <h1>Let's get started!</h1>
+                        <p>Fill in your details to create your mydrugaida account.</p>
+                    </div>
+
+                    <div class="loader">
+                        <img src="../img/Loader3.png" alt="progress">
+                    </div>
+
+                    <div class="input-fields">
+
+                        <div class="long-fields">
+                            <label for="verify-w-number">Phone number</label>
+                            <input type="tel" name="verify-w-number" id="verify-w-number" placeholder="+1 (555) 000-0000">
+
+                            <p class="preference"><a onclick="navigatePage(4)" style="color: #475467;" href="#">Send to E-mail instead</a></p>
+
+                        </div>
+                        
+                        <div class="nextstep-btn nextstep-btn2">
+                            <button onclick="navigatePage(5)" type="button">Next</button>
+                            <p>Didn’t get OTP? <span> Send again </span></p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- step 4 -->
+                <div class="form-step" id="page4">
+                    <div class="prev-btn">
+                        <button onclick="navigatePage(2)"> <img src="../img/Text + Button.png" alt="prev"> </button>
+                    </div>
+
+                    <div class="greeting-info">
+                        <h1>Let's get started!</h1>
+                        <p>Fill in your details to create your mydrugaida account.</p>
+                    </div>
+
+                    <div class="loader">
+                        <img src="../img/Loader3.png" alt="progress">
+                    </div>
+
+                    <div class="input-fields">
+
+                        <div class="long-fields">
+
+                            <label for="verify-w-email">Email address</label>
+                            <input type="email" name="verify-w-email" id="verify-w-email" placeholder="zelterstudios772@gmail.com">
+
+                            <p class="preference"><a onclick="navigatePage(3)" style="color: #475467;" href="#">Send to number instead</a></p>
+                        </div>
+                        
+                        <div class="nextstep-btn nextstep-btn2">
+                            <button onclick="navigatePage(5)" type="button">Next</button>
+                            <p>Didn’t get OTP? <span> Send again </span></p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- step 5 -->
+                <div class="form-step" id="page5">
+                    <div class="prev-btn">
+                        <button onclick="navigatePage(3)"> <img src="../img/Text + Button.png" alt="prev"> </button>
+                    </div>
+
+                    <div class="greeting-info">
+                        <h1>OTP setup</h1>
+                        <p>Please enter the code sent to you.</p>
+                    </div>
+
+                    <div class="loader">
+                        <img src="../img/Loader3.png" alt="progress">
+                    </div>
+
+                    <div class="input-fields">
+
+                            <div class="otp-input-container">
+                                <input type="text" placeholder="0" maxlength="1" class="otp-input" id="otp1" oninput="moveToNext(this, 'otp2')">
+                                <input type="text" placeholder="0" maxlength="1" class="otp-input" id="otp2" oninput="moveToNext(this, 'otp3')">
+                                <input type="text" placeholder="0" maxlength="1" class="otp-input" id="otp3" oninput="moveToNext(this, 'otp4')">
+                                <input type="text" placeholder="0" maxlength="1" class="otp-input" id="otp4" oninput="moveToNext(this, 'otp5')">
+                                <input type="text" placeholder="0" maxlength="1" class="otp-input" id="otp5">
+                            </div>
+                        
+                        <div class="nextstep-btn nextstep-btn2">
+                            <button onclick="navigatePage(6)" type="button" onclick="verifyOTP()">Finish up!</button>
+                            <p>Didn’t get OTP? <span> Send again </span></p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- step 6 -->
+                <div class="form-step" id="page6">
+                    <!-- <div class="prev-btn">
+                        <button onclick="navigatePage(3)"> <img src="../img/Text + Button.png" alt="prev"> </button>
+                    </div> -->
+
+                    <div class="greeting-info">
+                        <h1>Congratulations!</h1>
+                        <p>You have successfully completed your registration.</p>
+                    </div>
+
+                    <div class="input-fields">
+                        
+                        <div class="nextstep-btn nextstep-btn2">
+                            <button type="button">Start using mydrugaida</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+        <div class="form-container slideshow-container">
+                <div class="slides" id="slide1">
+                    <img src="../img/Section.png" alt="Image 1">
+                </div>
+                <div class="slides" id="slide2">
+                    <img src="../img/Section.png" alt="Image 2">
+                </div>
+                <div class="slides" id="slide3">
+                    <img src="../img/Section.png" alt="Image 3">
+                </div>
+            
+                <div class="circle-buttons">
+                    <span class="circle" onclick="manualSlide(1)"></span>
+                    <span class="circle" onclick="manualSlide(2)"></span>
+                    <span class="circle" onclick="manualSlide(3)"></span>
+                </div>
+        </div>
+
+    </div>
+</section>
+
+    <footer>
+
+    </footer>
+    
+    <!-- js code -->
+    <script src="script.js"></script>
+
+</body>
+</html>
